@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Nav from './components/Nav';
 import SearchBox from './components/SearchBox';
+import MovieList from './components/MovieList';
 
 class App extends Component {
   constructor() {
@@ -13,10 +14,12 @@ class App extends Component {
     this.apiKey = process.env.REACT_APP_API
   }
 
-  handleSubmit = () => {
+  handleSubmit = (e) => {
+    e.preventDefault();
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${this.state.searchTerm}`)
     .then(data => data.json())
     .then(data => {
+      console.log(data);
       this.setState({ movies:[...data.results] })
     })
   }
@@ -31,8 +34,8 @@ class App extends Component {
         <Nav/>
         <SearchBox handleSubmit={this.handleSubmit} handleChange={this.handleChange} />
           <div className="container">
-
           </div>
+          <MovieList/>
       </div>
     );
   }
