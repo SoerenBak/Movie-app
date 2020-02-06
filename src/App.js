@@ -35,7 +35,7 @@ class App extends Component {
         <SearchBox handleSubmit={this.handleSubmit} handleChange={this.handleChange} />
           <div className="container">
           </div>
-          <MovieList/>
+          <MovieList movies={this.state.movies} />
       </div>
     );
   }
