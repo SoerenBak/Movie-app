@@ -9,7 +9,7 @@ const Movie = (props) => {
                         height: 360}}/> : <img className="" src={`http://image.tmdb.org/t/p/w185${props.image}`} alt="Card image cap" style={{ width: "100%",
                         height: 360}} />}
                 </div>
-                <div class="card-content">                    
+                <div class="card-content">
                     <p><a href="#" onClick={() => props.viewMovieInfo(props.movieId)}>View Details</a></p>
                 </div>            
             </div>
